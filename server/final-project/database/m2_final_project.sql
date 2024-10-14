@@ -78,7 +78,7 @@ INSERT INTO recipe (name, description, directions, course_id)
 VALUES ('Ice Cream', 'Delicious frozen cream', 'Dont bother making it, just buy it from the store.', 3);
 
 INSERT INTO recipe (name, description, directions, course_id)
-VALUES ('Steak', 'Hunk of meat', 'Put steak on flame, take steam off flame, eat with hands', 2);
+VALUES ('Steak', 'Hunk of meat', 'Put steak on flame, take steak off flame, eat with hands', 2);
 
 INSERT INTO recipe (name, description, directions, course_id)
 VALUES ('Crudite Platter', 'An assortment of raw vegetables', 'Arrange your vegetables neatly on a plate or wooden board and serve', 1);

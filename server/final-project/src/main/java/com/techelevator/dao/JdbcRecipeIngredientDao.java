@@ -14,7 +14,7 @@ import java.util.List;
 @Component
 public class JdbcRecipeIngredientDao implements RecipeIngredientDao{
 
-    private final String RECIPE_INGREDIENT_SELECT = "SELECT ri.recipe_id, ri.ingredient_id " +
+    private final String RECIPE_INGREDIENT_SELECT = "SELECT ri.recipe_id, ri.ingredient_id, " +
             "FROM recipe_ingredient ri ";
 
     private final JdbcTemplate jdbcTemplate;
@@ -25,12 +25,11 @@ public class JdbcRecipeIngredientDao implements RecipeIngredientDao{
 
 
     @Override
-    public List<RecipeIngredient> getRecipeIngredientsByRecipeId(int recipeId) {
+    public List<RecipeIngredient> getRecipeIngredients() {
         List<RecipeIngredient> recipeIngredients = new ArrayList<>();
-        String sql = RECIPE_INGREDIENT_SELECT +
-                "WHERE ri.recipe_id = ?";
+        String sql = RECIPE_INGREDIENT_SELECT;
         try{
-            SqlRowSet results = jdbcTemplate.queryForRowSet(sql,recipeId);
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
             while (results.next()){
                 recipeIngredients.add(mapRowToRecipeIngredient(results));
             }

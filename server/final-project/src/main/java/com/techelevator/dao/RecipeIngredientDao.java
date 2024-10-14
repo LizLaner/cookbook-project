@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface RecipeIngredientDao {
 
-    List<RecipeIngredient> getRecipeIngredientsByRecipeId(int recipeId);
+    List<RecipeIngredient> getRecipeIngredients();
 //
 //    RecipeIngredient updateRecipeIngredient(RecipeIngredient updatedRecipeIngredient);
 //
