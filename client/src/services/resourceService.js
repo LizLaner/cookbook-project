@@ -11,6 +11,9 @@ const resourceService = {
   getRecipeIngredients() {
     return axios.get('/recipeIngredients');
   },
+  addRecipe(recipe) {
+    return axios.post('/recipes', recipe);
+  },
   deleteRecipe(recipeId) {
     return axios.delete(`/recipes/${recipeId}`);
   }

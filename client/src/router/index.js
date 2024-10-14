@@ -7,6 +7,7 @@ import LoginView from '../views/LoginView.vue'
 import LogoutView from '../views/LogoutView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import RecipeDetailsView from '../views/RecipeDetailsView.vue'
+import CreateNewView from '../views/CreateNewView.vue'
 
 
 /**
@@ -34,6 +35,16 @@ const routes = [
         requiresAuth: false
       }
     },
+    {
+      path: '/create',
+      name: 'create-new-recipe',
+      component: CreateNewView,
+      meta: {
+        requiresAuth: false
+      }
+    },
+
+
     {
       path: "/login",
       name: "login",

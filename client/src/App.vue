@@ -7,7 +7,7 @@
       <nav>
         <router-link v-bind:to="{name: 'home'}"> <button>Home</button> </router-link>
 
-        <router-link v-bind:to="{name: 'home'}"> <button>Create Recipe</button> </router-link>
+        <router-link v-bind:to="{name: 'create-new-recipe'}"> <button>Create Recipe</button> </router-link>
 
         <router-link v-bind:to="{ name: 'logout' }" v-if="this.$store.state.token">
           <button>Logout</button>
