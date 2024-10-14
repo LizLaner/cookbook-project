@@ -12,12 +12,14 @@
             </li>
 
         </ul>
+        <button v-on:click="deleteRecipe">Delete Recipe</button>
     
     </div>
   </section>
 </template>
 
 <script>
+import { resourceService } from '../services/resourceService';
 export default {
     computed: {
         recipes(){
@@ -32,6 +34,19 @@ export default {
             return this.$store.state.ingredients;
         }
     },
+    methods: {
+        deleteRecipe(){
+            if (confirm("Are you sure you want to delete this recipe? This action cannot be undone.")) {
+                resourceService.deleteRecipe(this.recipe.recipeId).then((response) => {
+                    if(response.status === 200){
+                        this.$router.push({name: 'home'});
+                    }
+                })
+                .catch(error =>
+                console.log(error));
+            }
+        }
+    }
 }
 </script>
 

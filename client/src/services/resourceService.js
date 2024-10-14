@@ -10,6 +10,9 @@ const resourceService = {
   },
   getRecipeIngredients() {
     return axios.get('/recipeIngredients');
+  },
+  deleteRecipe(recipeId) {
+    return axios.delete(`/recipes/${recipeId}`);
   }
   
 };
