@@ -18,25 +18,25 @@ public class IngredientsController {
         this.ingredientDao = ingredientDao;
     }
 
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+//    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     @GetMapping
     public List<Ingredient> getAllIngredients(){
         return ingredientDao.getIngredients();
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public Ingredient createIngredient(@RequestBody Ingredient ingredient){
         return ingredientDao.createIngredient(ingredient);
     }
 
-   @PreAuthorize("hasRole('ADMIN')")
+//   @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(path = "/{ingredientId}", method = RequestMethod.PUT)
     public Ingredient updateIngredient(@PathVariable int ingredientId, @RequestBody Ingredient ingredient){
         return ingredientDao.updateIngredient(ingredientId, ingredient);
     }
 
-   @PreAuthorize("hasRole('ADMIN')")
+//   @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(path = "/{ingredientId}", method = RequestMethod.DELETE)
     public void deleteIngredient(@PathVariable int ingredientId){
         ingredientDao.deleteIngredientById(ingredientId);

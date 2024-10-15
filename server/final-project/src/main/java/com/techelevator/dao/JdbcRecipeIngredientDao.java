@@ -14,7 +14,7 @@ import java.util.List;
 @Component
 public class JdbcRecipeIngredientDao implements RecipeIngredientDao{
 
-    private final String RECIPE_INGREDIENT_SELECT = "SELECT ri.recipe_id, ri.ingredient_id, " +
+    private final String RECIPE_INGREDIENT_SELECT = "SELECT ri.recipe_id, ri.ingredient_id " +
             "FROM recipe_ingredient ri ";
 
     private final JdbcTemplate jdbcTemplate;

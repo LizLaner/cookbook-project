@@ -21,15 +21,15 @@ export default {
   },
   created(){
     this.isLoading = true;
-    // this.$store.commit('SET_RECIPES', resourceService.getRecipes())
-    // resourceService.getRecipes().then((response) => {
-    //   this.$store.commit('SET_RECIPES', response.data);
-    // })
 
     Promise.all([
-      resourceService.getRecipes()
-    ]).then(([recipeResponse]) => {
+      resourceService.getRecipes(),
+      resourceService.getIngredients(),
+      resourceService.getRecipeIngredients()
+    ]).then(([recipeResponse, ingredientResponse, recipeIngredientResponse]) => {
       this.$store.commit("SET_RECIPES", recipeResponse.data);
+      this.$store.commit("SET_INGREDIENTS", ingredientResponse.data);
+      this.$store.commit('SET_RECIPE_INGREDIENTS', recipeIngredientResponse.data);
     }).catch((error) => {
       console.log(error)
     }).finally(() => {

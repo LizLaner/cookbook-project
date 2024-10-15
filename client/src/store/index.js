@@ -7,6 +7,8 @@ export function createStore(currentToken, currentUser) {
       recipes: [],
       ingredients: [],
       recipeIngredients: [],
+      currentRecipeIngredients:[],
+      currentIngredients: [],
       currentRecipeId: 1,
 
       token: currentToken || '',
@@ -16,15 +18,38 @@ export function createStore(currentToken, currentUser) {
       SET_RECIPES(state, recipes){
         state.recipes = recipes;
       },
-      SET_CURRENT_RECIPE_ID(state, recipeId){
-        state.currentRecipeId = recipeId;
-      },
       SET_INGREDIENTS(state, ingredients){
         state.ingredients = ingredients;
       },
       SET_RECIPE_INGREDIENTS(state, recipeIngredients){
         state.recipeIngredients = recipeIngredients;
       },
+      SET_CURRENT_RECIPE_ID(state, recipeId){
+        state.currentRecipeId = recipeId;
+      },
+      SET_CURRENT_RECIPE_INGREDIENTS(state, recipeId){
+        state.currentRecipeIngredients = [];
+
+        state.currentRecipeIngredients = state.recipeIngredients.filter(recipeIngredient => {
+          recipeIngredient.recipeId === recipeId;
+        })
+      },
+      SET_CURRENT_INGREDIENTS(state){
+        state.currentIngredients = [];
+
+        state.currentRecipeIngredients.forEach(recipeIngredient => {
+          const currentIngredientId = recipeIngredient.ingredientId;
+
+          const matchingIngredient = state.ingredients.find(ingredient => {
+            ingredient.ingredientId == currentIngredientId;
+          });
+
+          if(matchingIngredient){
+            state.currentIngredients.push(matchingIngredient);
+          }
+        });
+      },
+      
 
       SET_AUTH_TOKEN(state, token) {
         state.token = token;
@@ -42,7 +67,7 @@ export function createStore(currentToken, currentUser) {
         state.user = {};
         axios.defaults.headers.common = {};
       }
-    },
+    }
 
   })
   return store;

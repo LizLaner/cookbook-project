@@ -25,6 +25,9 @@ export default {
         selected(recipeId){
             this.$store.commit('SET_CURRENT_RECIPE_ID', recipeId);
         }
+    },
+    created(){
+        console.log(this.$store.state.recipeIngredients);
     }
 
 }
