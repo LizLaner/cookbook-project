@@ -36,8 +36,8 @@ CREATE TABLE recipe (
     description varchar(100),
     directions varchar(200) NOT NULL,
     course_id int,
-    CONSTRAINT PK_recipe PRIMARY KEY(recipe_id),
-    CONSTRAINT FK_course_id FOREIGN KEY(course_id) REFERENCES course(course_id)
+    CONSTRAINT PK_recipe PRIMARY KEY(recipe_id)
+--    CONSTRAINT FK_course_id FOREIGN KEY(course_id) REFERENCES course(course_id)
 );
 
 CREATE TABLE ingredient (

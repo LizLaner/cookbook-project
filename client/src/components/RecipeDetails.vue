@@ -1,6 +1,6 @@
 <template>
   <section id="recipe-details">
-    <!-- <div v-for="recipe in recipes" v-bind:key="recipe.recipeId"> -->
+    
         <div :key="recipe.recipeId">
         
         <h2>{{ recipe.name }}</h2>
@@ -10,7 +10,10 @@
         <h2>Ingredients:</h2>
         <ul>
             <li v-for="ingredient in currentIngredients" :key="ingredient.ingredientId">
-                {{ ingredient.name }}
+                {{ ingredient.name }}, 
+                {{ ingredient.quantity }} 
+                {{ ingredient.units }}, 
+                {{ ingredient.preparation }}
             </li>
 
         </ul>
@@ -23,20 +26,19 @@
 <script>
 import { resourceService } from '../services/resourceService';
 export default {
+    data(){
+        return {
+            currentIngredients: [],
+        }
+    },
     computed: {
-        // recipes(){
-        //     return this.$store.state.recipes.filter((recipe) => {
-        //         return recipe.recipeId == this.$store.state.currentRecipeId;
-        //     });
-        // },
+        
         recipe(){
             return this.$store.state.recipes.find((recipe) => {
                 return recipe.recipeId == this.$store.state.currentRecipeId;
             });
         },
-        currentIngredients(){
-            return this.$store.state.currentIngredients;
-        }
+        
 
     },
     methods: {
@@ -53,10 +55,9 @@ export default {
 
     },
     created(){
-        const currentRecipeId = this.$store.state.currentRecipeId;
-        this.$store.commit("SET_CURRENT_RECIPE_INGREDIENTS", currentRecipeId);
-        this.$store.commit("SET_CURRENT_INGREDIENTS");
-        console.log(this.currentRecipeIngredients);
+        resourceService.getIngredientsForRecipe(this.$store.state.currentRecipeId).then((response) => {
+            this.currentIngredients = response.data;
+        })
     }
 }
 </script>

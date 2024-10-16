@@ -69,7 +69,7 @@ export default {
       grid-template-columns: 1fr;
       grid-template-areas: 
           "recipes"
-          "ingredients";
+          "recipe-description";
   }
 
 }

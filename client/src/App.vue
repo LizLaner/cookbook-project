@@ -16,6 +16,17 @@
     </nav>
     </header>
 
+    <!-- <nav>
+        <router-link v-bind:to="{name: 'home'}"> <button>Home</button> </router-link>
+
+        <router-link v-bind:to="{name: 'create-new-recipe'}"> <button>Create Recipe</button> </router-link>
+
+        <router-link v-bind:to="{ name: 'logout' }" v-if="this.$store.state.token">
+          <button>Logout</button>
+        </router-link>
+        <router-link v-bind:to="{ name: 'login' }" v-else> <button>Login</button> </router-link>
+    </nav> -->
+
     <main>
       <router-view />
     </main>
@@ -27,14 +38,14 @@
 
 <style>
 body{
-    /* display: grid;
-    grid-template-rows: 130px 30px 1fr 30px;
+    display: grid;
+    /* grid-template-rows: 130px 30px 1fr 30px;
     grid-template-areas: 
     "header"
     "nav"
     "main"
-    "footer";
-    gap: 10px;*/
+    "footer"; */
+    gap: 10px;
     background-color: #CBE4BD; 
     font-family: Georgia, 'Times New Roman', Times, serif;
     cursor: default;  
@@ -46,15 +57,15 @@ header{
     grid-area: header;
     display: flex;
     background-color: #CBE4BD;
-    justify-content: space-between; 
+    justify-content:flex-start; 
     padding-left: 50px;
     /* padding-right: 250px; */
-    align-items: flex-end;
+    align-items:center;
     font-size: x-large;
     position: fixed;
     top: 0;
     left: 0;
-    width: 95%;
+    width: 100%;
     z-index: 1000;
 }
 
@@ -130,9 +141,9 @@ img{
 }
 main{
     grid-template-columns: 1fr;
-    grid-template-areas: 
+    /* grid-template-areas: 
         "recipes"
-        "ingredients";
+        "ingredients"; */
 }
 
 footer{

@@ -7,8 +7,6 @@ export function createStore(currentToken, currentUser) {
       recipes: [],
       ingredients: [],
       recipeIngredients: [],
-      currentRecipeIngredients:[],
-      currentIngredients: [],
       currentRecipeId: 1,
 
       token: currentToken || '',
@@ -26,28 +24,6 @@ export function createStore(currentToken, currentUser) {
       },
       SET_CURRENT_RECIPE_ID(state, recipeId){
         state.currentRecipeId = recipeId;
-      },
-      SET_CURRENT_RECIPE_INGREDIENTS(state, recipeId){
-        state.currentRecipeIngredients = [];
-
-        state.currentRecipeIngredients = state.recipeIngredients.filter(recipeIngredient => {
-          recipeIngredient.recipeId === recipeId;
-        })
-      },
-      SET_CURRENT_INGREDIENTS(state){
-        state.currentIngredients = [];
-
-        state.currentRecipeIngredients.forEach(recipeIngredient => {
-          const currentIngredientId = recipeIngredient.ingredientId;
-
-          const matchingIngredient = state.ingredients.find(ingredient => {
-            ingredient.ingredientId == currentIngredientId;
-          });
-
-          if(matchingIngredient){
-            state.currentIngredients.push(matchingIngredient);
-          }
-        });
       },
       
 

@@ -7,7 +7,7 @@
             <input type="text"
             id="recipeName"
             name="recipeName"
-            v-model="recipe.name">
+            v-model="newRecipe.name">
         </div>
 
         <div>
@@ -15,7 +15,7 @@
             <input type="text"
             id="recipeDescription"
             name="recipeDescription"
-            v-model="recipe.description">
+            v-model="newRecipe.description">
         </div>
 
         <div>
@@ -23,11 +23,21 @@
             <input type="text"
             id="recipeDirections"
             name="recipeDirections"
-            v-model="recipe.directions">
+            v-model="newRecipe.directions">
         </div>
 
+        <!-- <div>
+            <label for="courseId">Course ID:</label>
+            <input type="number"
+            id="courseId"
+            name="courseId"
+            v-model="newRecipe.course_id">
+        </div> -->
+
+        
+
         <div>
-            <button type="submit">Continue to Ingredients</button>
+            <button type="submit" >Continue to Ingredients</button>
         </div>
 
 
@@ -41,7 +51,8 @@ import {resourceService} from "../services/resourceService"
 export default {
     data() {
         return {
-            recipe: {
+            newRecipe: {
+                recipeId: null,
                 name: "",
                 description: "",
                 directions: "",
@@ -51,8 +62,11 @@ export default {
     },
     methods: {
         submitRecipe(){
-            resourceService.addRecipe(this.recipe).then((response) => {
-                this.$router.push({ name: 'home'});
+            resourceService.addRecipe(this.newRecipe).then((response) => {
+                const createdRecipe = response.data;
+                this.newRecipe.recipeId = createdRecipe.recipeId;
+                this.$store.commit("SET_CURRENT_RECIPE_ID", this.newRecipe.recipeId);
+                this.$router.push({ name: 'create-new-ingredients', params: {recipeId : this.newRecipe.recipeId}});
             })
         }
     }

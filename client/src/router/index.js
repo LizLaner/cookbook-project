@@ -8,6 +8,7 @@ import LogoutView from '../views/LogoutView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import RecipeDetailsView from '../views/RecipeDetailsView.vue'
 import CreateNewView from '../views/CreateNewView.vue'
+import NewIngredientView from '../views/NewIngredientView.vue'
 
 
 /**
@@ -40,7 +41,15 @@ const routes = [
       name: 'create-new-recipe',
       component: CreateNewView,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/create/:recipeId',
+      name: 'create-new-ingredients',
+      component: NewIngredientView,
+      meta: {
+        requiresAuth: true
       }
     },
 
