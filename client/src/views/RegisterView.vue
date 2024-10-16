@@ -20,6 +20,7 @@
           v-model="user.name"
           required
         />
+        <br>
         <label for="password">Password</label>
         <input
           type="password"
@@ -36,6 +37,7 @@
           v-model="user.confirmPassword"
           required
         />
+        <br>
 
         <label for="address">Address</label>
         <input
@@ -47,6 +49,7 @@
 
         <label for="city">City</label>
         <input type="text" id="city" placeholder="City" v-model="user.city" />
+        <br>
 
         <label for="state">State</label>
         <input
@@ -146,4 +149,28 @@ export default {
 </script>
 
 <style scoped>
+
+form input{
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+form div{
+  margin-left: 50px;
+}
+
+@media only screen and (max-width: 450px){
+
+  form{
+    display: flex;
+    flex-direction: column;
+  }
+
+  #fields{
+    max-width: 200px;
+  }
+
+}
+
 </style>

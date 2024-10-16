@@ -73,6 +73,20 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+form input{
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+button{
+    margin-top: 20px;
+}
+
+h2{
+    margin-bottom: 20px;
+}
 
 </style>

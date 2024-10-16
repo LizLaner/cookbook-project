@@ -4,19 +4,7 @@
       <img src="./assets/Fizz Buzz.jpg" alt="">
       <h1>Fizz Buzz Recipe Blog</h1>
 
-      <nav>
-        <router-link v-bind:to="{name: 'home'}"> <button>Home</button> </router-link>
-
-        <router-link v-bind:to="{name: 'create-new-recipe'}"> <button>Create Recipe</button> </router-link>
-
-        <router-link v-bind:to="{ name: 'logout' }" v-if="this.$store.state.token">
-          <button>Logout</button>
-        </router-link>
-        <router-link v-bind:to="{ name: 'login' }" v-else> <button>Login</button> </router-link>
-    </nav>
-    </header>
-
-    <!-- <nav>
+      <!-- <nav>
         <router-link v-bind:to="{name: 'home'}"> <button>Home</button> </router-link>
 
         <router-link v-bind:to="{name: 'create-new-recipe'}"> <button>Create Recipe</button> </router-link>
@@ -26,6 +14,18 @@
         </router-link>
         <router-link v-bind:to="{ name: 'login' }" v-else> <button>Login</button> </router-link>
     </nav> -->
+    </header>
+
+    <nav>
+        <router-link v-bind:to="{name: 'home'}"> <button>Home</button> </router-link>
+
+        <router-link v-bind:to="{name: 'create-new-recipe'}"> <button>Create Recipe</button> </router-link>
+
+        <router-link v-bind:to="{ name: 'logout' }" v-if="this.$store.state.token">
+          <button>Logout</button>
+        </router-link>
+        <router-link v-bind:to="{ name: 'login' }" v-else> <button>Login</button> </router-link>
+    </nav>
 
     <main>
       <router-view />
@@ -54,7 +54,7 @@ body{
 
 
 header{
-    grid-area: header;
+    /* grid-area: header; */
     display: flex;
     background-color: #CBE4BD;
     justify-content:flex-start; 
@@ -74,30 +74,35 @@ header h1{
 }
 
 img{
-    height: 130px;
+    height: 150px;
     width: auto;
+    padding-right: 100px;
 }
 
-nav{
-    grid-area: nav;
+nav {
+    /* grid-area: nav; */
     display: flex;
     background-color: #f5f7db;
     justify-content: space-evenly;
     align-items: center;
     text-transform: uppercase;
     border-radius: 10px;
+    padding: 5px; 
+    margin-top: 140px; 
 }
 
-nav button{
+button{
     /* list-style: none; */
     cursor: pointer;
     padding: 5px;
-    border-radius: 5px;
-}
-
-nav button:hover{
+    border-radius: 10px;
     background-color: #e5e8b8;
 }
+
+button:hover{
+    background-color: #d2d69d;
+}
+
 
 main{
     grid-area: main;
@@ -108,7 +113,7 @@ main{
     padding: 30px;
     border-radius: 10px;
     overflow: auto;
-    margin-top: 140px;
+    margin-top: 5px;
 }
 
 footer{
@@ -126,29 +131,34 @@ footer{
 
 @media only screen and (max-width: 450px){
 
-body{
-    grid-template-rows: 80px 20px 1fr 20px;
-    gap: 5px;
-}
-header{
-    padding: 0%;
-    align-items: center;
-    justify-self: unset;
-    font-size: x-small;
-}
-img{
-    height: 80px;
-}
-main{
-    grid-template-columns: 1fr;
-    /* grid-template-areas: 
-        "recipes"
-        "ingredients"; */
-}
+    body{
+        grid-template-rows: 80px 20px 1fr 20px;
+        gap: 5px;
+    }
+    header{
+        padding: 0%;
+        align-items: center;
+        justify-self: unset;
+        font-size: x-small;
+    }
+    img{
+        height: 80px;
+        padding: 0%;
+    }
+    nav{
+        margin-top: 80px;
+    }
+    main{
+        grid-template-columns: 1fr;
+        padding: 20px;
+        /* grid-template-areas: 
+            "recipes"
+            "ingredients"; */
+    }
 
-footer{
-    padding: 0%;
-}
+    footer{
+        padding: 0%;
+    }
 
 }
 

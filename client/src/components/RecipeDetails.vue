@@ -17,7 +17,7 @@
             </li>
 
         </ul>
-        <button v-on:click="deleteRecipe(recipe)">Delete Recipe</button>
+        <button v-if="isLoggedIn" v-on:click="deleteRecipe(recipe)">Delete Recipe</button>
     
     </div>
   </section>
@@ -38,6 +38,11 @@ export default {
                 return recipe.recipeId == this.$store.state.currentRecipeId;
             });
         },
+        isLoggedIn(){
+            return (
+                this.$store.state.user && this.$store.state.user.id
+            );
+        }
         
 
     },

@@ -68,4 +68,21 @@ export default {
 
 <style scoped>
 
+form input{
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 450px){
+
+#fields{
+  max-width: 200px;
+}
+
+}
+
+
+
+
 </style>

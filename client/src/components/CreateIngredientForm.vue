@@ -5,7 +5,7 @@
         
     
         <div>
-            <label for="ingredientName">Ingredient Name:</label>
+            <label for="ingredientName">Name:</label>
             <input type="text"
             id="ingredientName"
             name="ingredientName"
@@ -13,7 +13,7 @@
         </div>
 
         <div>
-            <label for="ingredientPrep">Ingredient Preparation:</label>
+            <label for="ingredientPrep">Preparation:</label>
             <input type="text"
             id="ingredientPrep"
             name="ingredientPrep"
@@ -21,7 +21,7 @@
         </div>
 
         <div>
-            <label for="ingredientQuantity">Ingredient Quantity:</label>
+            <label for="ingredientQuantity">Quantity:</label>
             <input type="number"
             id="ingredientQuantity"
             name="ingredientQuantity"
@@ -29,7 +29,7 @@
         </div>
 
         <div>
-            <label for="ingredientUnits">Ingredient Units:</label>
+            <label for="ingredientUnits">Units:</label>
             <input type="text"
             id="ingredientUnits"
             name="ingredientUnits"
@@ -104,6 +104,21 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+form input{
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+button{
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+h2{
+    margin-bottom: 20px;
+}
 
 </style>
